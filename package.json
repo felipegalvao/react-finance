@@ -1,7 +1,7 @@
 {
-  "name": "ReactTimer",
+  "name": "react-finance",
   "version": "1.0.0",
-  "description": "Timer app built with React",
+  "description": "Finance Manager app built with React",
   "main": "index.js",
   "scripts": {
     "test": "karma start",
@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.15.2",
-    "express": "^4.14.0",    
+    "express": "^4.14.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "^3.0.0"
@@ -38,6 +38,6 @@
     "sass-loader": "^4.0.2",
     "script-loader": "^0.7.0",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.3"
+    "webpack": "^1.14.0"
   }
 }
