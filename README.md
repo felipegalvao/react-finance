@@ -1,1 +1,1 @@
-Boilerplate React App
+Simple Finance Manager app built with React
