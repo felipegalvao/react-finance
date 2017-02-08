@@ -22,6 +22,7 @@ class AddItem extends React.Component{
       var itemType = 'income';
     }
     this.props.onAddItem(itemDescription, itemValue, itemDate, itemType);
+    this.refs.itemDescription.focus();
   }
 
   render() {

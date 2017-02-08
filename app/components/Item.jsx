@@ -11,9 +11,12 @@ class Item extends React.Component{
     var {id, itemDescription, itemValue, itemDate} = this.props;
 
     return (
-      <div>
-        {moment.unix(itemDate).utc().format('DD/MM/YYYY')} - {itemDescription} - {itemValue}
-      </div>
+      <tr>
+        <td>{moment.unix(itemDate).utc().format('DD/MM/YYYY')}</td>
+        <td>{itemDescription}</td>
+        <td>{itemValue}</td>
+        <td onClick={() => {this.props.onDelete(id, itemDescription)} }><i className="fa fa-trash" aria-hidden="true"></i></td>
+      </tr>
     )
   }
 };

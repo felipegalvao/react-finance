@@ -10,14 +10,26 @@ class ItemList extends React.Component{
     var {items, title} = this.props;
     var renderItems = () => {
       return items.map((item) => {
-        return <Item key={item.id} {...item}/>
+        return <Item key={item.id} {...item} onDelete={ this.props.onDelete } />
       })
     }
 
     return (
       <div className="medium-6 large-6 columns callout">
         <h2>{title}</h2>
-        {renderItems()}
+        <table className="table-itemlist">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Value</th>
+              <th>Remove</th>              
+            </tr>
+          </thead>
+          <tbody>
+            {renderItems()}
+          </tbody>
+        </table>
       </div>
     )
   }

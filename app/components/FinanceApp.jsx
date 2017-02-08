@@ -16,6 +16,7 @@ class FinanceApp extends React.Component {
     };
 
     this.handleAddItem = this.handleAddItem.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleAddItem (itemDescription, itemValue, itemDate, itemType) {    
@@ -38,6 +39,18 @@ class FinanceApp extends React.Component {
       this.setState({ incomeTotal: Number(this.state.incomeTotal) + Number(itemValue) })
     }
     this.setState({ balance: this.state.incomeTotal - this.state.expenseTotal })
+  }
+
+  handleDelete (id, itemDescription) {
+    var confirmation = confirm('Are you sure you want to delete "' + itemDescription + '"?');
+    if (confirmation) {
+      var newItems = this.state.items.filter((item) => {
+        return item.id !== id;
+      })
+      this.setState({
+        items: newItems
+      })
+    }     
   }
 
   render() {
@@ -65,8 +78,8 @@ class FinanceApp extends React.Component {
         </div>
         <div className="row">
           <div className="column small-centered medium-8 large-8">
-            <ItemList items={expenses} title={"Expenses"}/>
-            <ItemList items={incomes} title={"Incomes"}/>
+            <ItemList items={expenses} title={"Expenses"} onDelete={ this.handleDelete }/>
+            <ItemList items={incomes} title={"Incomes"} onDelete={ this.handleDelete }/>
           </div>
         </div>
         <div className="row">
