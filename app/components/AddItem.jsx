@@ -12,7 +12,7 @@ class AddItem extends React.Component{
     var itemDescription = this.refs.itemDescription.value;
     var itemValue = this.refs.itemValue.value;
     console.log(this.refs.itemDate.valueAsDate);    
-    var itemDate = moment(this.refs.itemDate.valueAsDate).unix();
+    var itemDate = moment(this.refs.itemDate.valueAsDate).utc().unix();
     this.refs.itemDescription.value = '';
     this.refs.itemValue.value = ''
     this.refs.itemDate.value = ''
