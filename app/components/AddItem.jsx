@@ -27,7 +27,7 @@ class AddItem extends React.Component{
 
   render() {
     return (
-      <div className="medium-6 large-6 columns callout">
+      <div className="medium-6 large-6 columns">
         <h4>Add New income / expense</h4>
         <form onSubmit={this.handleSubmit}>
           <label>Description<input type="text" ref="itemDescription" placeholder="Insert an income / expense here"/></label>

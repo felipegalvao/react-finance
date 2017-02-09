@@ -11,14 +11,14 @@ class Balance extends React.Component{
 
     return (
       <div>
-        <div className="medium-6 large-6 columns callout">
+        <div className="medium-6 large-6 columns">
           <p>Total: {expenseTotal}</p>
         </div>
-        <div className="medium-6 large-6 columns callout">
+        <div className="medium-6 large-6 columns">
           <p>Total: {incomeTotal}</p>
         </div>
 
-        <div className="medium-12 large-12 columns callout">
+        <div className="medium-12 large-12 columns">
           <p>Balance: {balance}</p>
         </div>
       </div>

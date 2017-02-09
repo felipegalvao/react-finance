@@ -92,7 +92,7 @@ class FinanceApp extends React.Component {
     } else {
       var filteredItems = filteredItems.filter((item) => {
         var itemDate = item.itemDate;
-        return itemDate > filterDateFrom && itemDate < filterDateTo;
+        return itemDate >= filterDateFrom && itemDate <= filterDateTo;
       })
     }
 
@@ -121,24 +121,24 @@ class FinanceApp extends React.Component {
     return (
       <div>
         <div className="row">
-          <div className="column small-centered medium-8 large-8">
+          <div className="columns small-centered medium-8 large-8">
             <h1 className="text-center">React Finance App</h1>
           </div>
         </div>
         <div className="row">
-          <div className="column small-centered medium-8 large-8">
+          <div className="columns small-centered medium-8 large-8">
             <AddItem onAddItem={this.handleAddItem}/>
             <FilterItem onFilterByText={this.handleFilterByText} onFilterByDate={this.handleFilterByDate} />
           </div>
         </div>
         <div className="row">
-          <div className="column small-centered medium-8 large-8">
+          <div className="columns small-centered medium-8 large-8">
             <ItemList items={expenses} title={"Expenses"} onDelete={ this.handleDelete }/>
             <ItemList items={incomes} title={"Incomes"} onDelete={ this.handleDelete }/>
           </div>
         </div>
         <div className="row">
-          <div className="column small-centered medium-8 large-8">
+          <div className="columns small-centered medium-8 large-8">
             <Balance expenseTotal={expenseTotal} incomeTotal={incomeTotal} />
           </div>
         </div>

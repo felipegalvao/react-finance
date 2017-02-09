@@ -45,7 +45,7 @@ class FilterItem extends Component {
     }
     
     return (
-      <div className="medium-6 large-6 columns callout">
+      <div className="medium-6 large-6 columns">
         <h4>Filter</h4>
         <div>
           <input type="text" ref="searchItemText" placeholder="Filter incomes and expenses" onChange={this.handleFilterByText} />
