@@ -27,11 +27,12 @@ class AddItem extends React.Component{
 
   render() {
     return (
-      <div className="medium-12 large-12 columns callout">
+      <div className="medium-6 large-6 columns callout">
+        <h4>Add New income / expense</h4>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" ref="itemDescription" placeholder="Insert an income / expense here"/>
-          <input type="number" ref="itemValue" placeholder="Insert value of income / expense here"/>
-          <input type="date" ref="itemDate" placeholder="Insert the date when the income / expense occurred"/>
+          <label>Description<input type="text" ref="itemDescription" placeholder="Insert an income / expense here"/></label>
+          <label>Value<input type="number" ref="itemValue" placeholder="Insert value of income / expense here"/></label>
+          <label>Date<input type="date" ref="itemDate" placeholder="Insert the date when the income / expense occurred"/></label>
           <label><input type="radio" name="type" ref="expense" value="expense" defaultChecked /> Expense</label>
           <label><input type="radio" name="type" ref="income" value="income" /> Income</label>
           <input type="submit" value="Register Income / Expense" className="success button" />

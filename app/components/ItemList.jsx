@@ -16,7 +16,7 @@ class ItemList extends React.Component{
 
     return (
       <div className="medium-6 large-6 columns callout">
-        <h2>{title}</h2>
+        <h4>{title}</h4>
         <table className="table-itemlist">
           <thead>
             <tr>
