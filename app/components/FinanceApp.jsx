@@ -59,10 +59,18 @@ class FinanceApp extends React.Component {
   }
 
   handleFilterByDate (dateFrom, dateTo) {
-    this.setState({
-      filterDateFrom: dateFrom,
-      filterDateTo: dateTo
-    })
+    if (isNaN(dateFrom) || isNaN(dateTo)) {
+      this.setState({
+        filterDateFrom: null,
+        filterDateTo: null
+      })
+    } else {
+      this.setState({
+        filterDateFrom: dateFrom,
+        filterDateTo: dateTo
+      })
+    }
+    
   }
 
   render() {

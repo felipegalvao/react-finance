@@ -8,6 +8,14 @@ class FilterItem extends Component {
     this.handleFilterByText = this.handleFilterByText.bind(this);
     this.handleFilterByDate = this.handleFilterByDate.bind(this);
     this.handleFilterLastDays = this.handleFilterLastDays.bind(this);
+    this.handleClearFilter = this.handleClearFilter.bind(this);
+  }
+
+  handleClearFilter (e) {
+    e.preventDefault();
+    this.refs.toDateFilter.value = '';
+    this.refs.fromDateFilter.value = '';
+    this.handleFilterByDate(e);
   }
 
   handleFilterByText () {
@@ -21,8 +29,8 @@ class FilterItem extends Component {
   }
 
   handleFilterByDate (e) {
-    e.preventDefault();
-    var dateFrom = moment(this.refs.fromDateFilter.valueAsDate).unix();
+    e.preventDefault();    
+    var dateFrom = moment(this.refs.fromDateFilter.valueAsDate).unix();    
     var dateTo = moment(this.refs.toDateFilter.valueAsDate).unix();    
     this.props.onFilterByDate(dateFrom, dateTo);
   }
@@ -32,7 +40,7 @@ class FilterItem extends Component {
 
     var renderFilterLastDaysButtons = () => {
       return possibleDays.map((day) => {
-        return <FilterLastDaysButton days={day} onFilterLastDays={this.handleFilterLastDays} />
+        return <FilterLastDaysButton days={day} onFilterLastDays={this.handleFilterLastDays} key={day} />
       })
     }
     
@@ -44,10 +52,11 @@ class FilterItem extends Component {
           <p>Filter the last:</p>
           {renderFilterLastDaysButtons()}
           <p>Date Range</p>
-          <form onSubmit={this.handleFilterByDate}>
+          <form onSubmit={this.handleFilterByDate} ref="formFilterDate">
             <label>From<input type="date" ref="fromDateFilter" placeholder="Filter incomes and expenses from" /></label>
             <label>To<input type="date" ref="toDateFilter" placeholder="Filter incomes and expenses to" /></label>
             <input type="submit" className="button" value="Filter Dates" />
+            <button className="button" onClick={this.handleClearFilter}>Clear Filter</button>
           </form>
         </div>
       </div>
