@@ -10,6 +10,7 @@ $(document).foundation();
 require('style!css!sass!applicationStyles');
 
 
+
 ReactDOM.render(
   <FinanceApp/>,
   document.getElementById('app')

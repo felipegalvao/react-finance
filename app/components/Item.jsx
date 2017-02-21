@@ -15,7 +15,7 @@ class Item extends React.Component{
         <td>{moment.unix(itemDate).utc().format('DD/MM/YYYY')}</td>
         <td>{itemDescription}</td>
         <td>{itemValue}</td>
-        <td onClick={() => {this.props.onDelete(id, itemDescription)} }><i className="fa fa-trash" aria-hidden="true"></i></td>
+        <td onClick={() => {this.props.onDelete(id, itemDescription)}}><i className="fa fa-trash" aria-hidden="true"></i></td>
       </tr>
     )
   }
