@@ -27,15 +27,31 @@ class AddItem extends React.Component{
 
   render() {
     return (
-      <div className="medium-6 large-6 columns">
+      <div className="medium-12 large-12 columns">
         <h4>Add New income / expense</h4>
         <form onSubmit={this.handleSubmit}>
-          <label>Description<input type="text" ref="itemDescription" placeholder="Insert an income / expense here"/></label>
-          <label>Value<input type="number" ref="itemValue" placeholder="Insert value of income / expense here"/></label>
-          <label>Date<input type="date" ref="itemDate" placeholder="Insert the date when the income / expense occurred"/></label>
-          <label><input type="radio" name="type" ref="expense" value="expense" defaultChecked /> Expense</label>
-          <label><input type="radio" name="type" ref="income" value="income" /> Income</label>
-          <input type="submit" value="Register Income / Expense" className="success button" />
+          <div className="row">
+            <div className="medium-4 large-4 columns">
+              <label>Description<input type="text" ref="itemDescription" placeholder="Insert an income / expense here"/></label>
+            </div>
+            <div className="medium-2 large-2 columns">
+              <label>Value<input type="number" step="0.01" ref="itemValue" placeholder="Insert value here"/></label>
+            </div>
+            <div className="medium-2 large-2 columns">
+              <label>Date<input type="date" ref="itemDate" placeholder="Insert the date when the income / expense occurred"/></label>
+            </div>
+            <div className="medium-2 large-2 columns column-radio-button">              
+              <label><input type="radio" name="type" ref="expense" value="expense" defaultChecked /> Expense</label>
+            </div>
+            <div className="medium-2 large-2 columns column-radio-button">              
+              <label><input type="radio" name="type" ref="income" value="income" /> Income</label>
+            </div>
+          </div>
+          <div className="row">
+            <div className="medium-2 large-2 columns">
+              <input type="submit" value="Register Income / Expense" className="button button-add-item" />
+            </div>
+          </div>
         </form>
       </div>
     );

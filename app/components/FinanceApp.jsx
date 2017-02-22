@@ -36,10 +36,9 @@ class FinanceApp extends React.Component {
       if (user) {
         that.handleAppLogin(user.uid);
 
-        var uid = that.state.auth.uid;
-        var itemsRef = firebase.database().ref('users/' + uid + '/items');
+        var uid = that.state.auth.uid;        
         
-        itemsRef.on('value', function(snapshot) {
+        var itemsRef = firebase.database().ref('users/' + uid + '/items').on('value', function(snapshot) {
           var items = snapshot.val() || {};
           var listItems = [];
 
@@ -54,7 +53,7 @@ class FinanceApp extends React.Component {
             items: listItems
           });
         });
-      } else {
+      } else {        
         that.handleLogout();
       }
     });    
@@ -161,11 +160,14 @@ class FinanceApp extends React.Component {
   handleLogout () {
     console.log('starting logout');
     var that = this;
+    var uid = this.state.auth.uid;    
+    firebase.database().ref('users/' + uid + '/items').off();    
     firebase.auth().signOut().then(function() {
-      console.log('logout successful');
+      console.log('logout successful');      
       that.setState({
-        auth: {}
-      });
+        items: [],
+        auth: {}        
+      });      
     }, function(error) {
       // An error happened.
     });
@@ -214,33 +216,47 @@ class FinanceApp extends React.Component {
       incomeTotal += Number(incomes[i].itemValue);
     }
 
-    var balance = incomeTotal - expenseTotal;
+    var renderApp = () => {      
+      if (firebase.auth().currentUser) {
+        return (
+          <div>
+            <div className="row row-add-item box-material">
+              <AddItem onAddItem={this.handleAddItem}/>              
+            </div>
+            <div className="row row-filter box-material">              
+              <FilterItem onFilterByText={this.handleFilterByText} onFilterByDate={this.handleFilterByDate} />              
+            </div>
+            <div className="row row-items box-material">              
+              <ItemList items={expenses} title={"Expenses"} totalValue={expenseTotal} onDelete={ this.handleDelete }/>
+              <ItemList items={incomes} title={"Incomes"} totalValue={incomeTotal} onDelete={ this.handleDelete }/>              
+            </div>
+            <div className="row row-balance box-material">              
+              <Balance expenseTotal={expenseTotal} incomeTotal={incomeTotal} />              
+            </div>
+          </div>
+        )
+      } else {
+        return (
+          <div className="row">
+            <div className="columns small-centered medium-12 large-12">              
+              <Login onGithubLogin={ this.handleGithubLogin } onGoogleLogin={ this.handleGoogleLogin } onLogout={ this.handleLogout }/>
+            </div>
+          </div>
+        )
+      }        
+    }
+
+    var renderLogout = () => {
+      if (firebase.auth().currentUser) {
+        return <a className="p-logout" onClick={this.handleLogout}>Logout</a>
+      }
+    } 
 
     return (
       <div>
-        <div className="row">
-          <div className="columns small-centered medium-8 large-8">
-            <h1 className="text-center">React Finance App</h1>
-            <Login onGithubLogin={ this.handleGithubLogin } onGoogleLogin={ this.handleGoogleLogin } onLogout={ this.handleLogout }/>
-          </div>
-        </div>
-        <div className="row">
-          <div className="columns small-centered medium-8 large-8">
-            <AddItem onAddItem={this.handleAddItem}/>
-            <FilterItem onFilterByText={this.handleFilterByText} onFilterByDate={this.handleFilterByDate} />
-          </div>
-        </div>
-        <div className="row">
-          <div className="columns small-centered medium-8 large-8">
-            <ItemList items={expenses} title={"Expenses"} onDelete={ this.handleDelete }/>
-            <ItemList items={incomes} title={"Incomes"} onDelete={ this.handleDelete }/>
-          </div>
-        </div>
-        <div className="row">
-          <div className="columns small-centered medium-8 large-8">
-            <Balance expenseTotal={expenseTotal} incomeTotal={incomeTotal} />
-          </div>
-        </div>
+        {renderLogout()}
+        <h1 className="text-center">React Finance App</h1>
+        {renderApp()}
       </div>
     )
   }

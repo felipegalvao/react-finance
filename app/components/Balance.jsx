@@ -1,5 +1,7 @@
 import React from 'react';
 
+var NumberFormat = require('react-number-format');
+
 class Balance extends React.Component{
   constructor(props) {
     super(props);
@@ -10,16 +12,9 @@ class Balance extends React.Component{
     var balance = incomeTotal - expenseTotal;
 
     return (
-      <div>
-        <div className="medium-6 large-6 columns">
-          <p>Total: {expenseTotal}</p>
-        </div>
-        <div className="medium-6 large-6 columns">
-          <p>Total: {incomeTotal}</p>
-        </div>
-
+      <div>        
         <div className="medium-12 large-12 columns">
-          <p>Balance: {balance}</p>
+          <h3>Balance: <NumberFormat value={parseFloat(balance).toFixed(2)} displayType={'text'} decimalSeparator={true} thousandSeparator={true} prefix={'$'} /></h3>
         </div>
       </div>
     )    

@@ -1,0 +1,20 @@
+.row-filter {
+    background-color: $lightGray;
+    margin-bottom: 20px;
+
+    .column-filter-last-days {
+        button {
+            margin-right: 4px;
+        }
+    }
+
+    .button-apply-filter, .button-clear-filter {
+        margin-top: 38px;
+    }
+
+    .icon-hide-show-filter {
+        margin-left: 10px;
+        cursor: pointer;
+        color: dodgerblue;
+    }
+}

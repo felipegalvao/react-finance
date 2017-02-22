@@ -1,0 +1,18 @@
+.column-radio-button {
+    padding-top: 33px;
+}
+
+.row-add-item {
+    background-color: $lightGray;        
+    margin-bottom: 20px;
+
+    .button-add-item {
+        background-color: #FFFC7F;
+        color: #000000;
+        font-weight: bold;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+        &:hover {
+            background-color: #DEDB6D;
+        }
+    }
+}

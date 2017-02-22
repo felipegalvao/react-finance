@@ -1,13 +1,15 @@
 import React from 'react';
 import Item from 'Item';
 
+var NumberFormat = require('react-number-format');
+
 class ItemList extends React.Component{
   constructor(props) {
     super(props);
   }
 
   render() {
-    var {items, title} = this.props;
+    var {items, title, totalValue} = this.props;
     var renderItems = () => {
       return items.map((item) => {
         return <Item key={item.id} {...item} onDelete={ this.props.onDelete } />
@@ -29,6 +31,12 @@ class ItemList extends React.Component{
           <tbody>
             {renderItems()}
           </tbody>
+          <tfoot>
+            <tr>
+              <td colSpan={2}>Total:</td>
+              <td><NumberFormat value={parseFloat(totalValue).toFixed(2)} displayType={'text'} decimalSeparator={true} thousandSeparator={true} prefix={'$'} /></td>
+            </tr>
+          </tfoot>
         </table>
       </div>
     )

@@ -1,3 +1,21 @@
+.row-items {
+  background-color: #FFFC7F;
+  table {
+    width: 100%;
+    display: table;
+    
+    thead {
+      border-bottom: 1px solid #d0d0d0;
+      tr {
+        border-bottom: 1px solid #d0d0d0;
+      }
+    }
+    th, td {
+      border: none;
+    }
+  }
+}
+
 .item-list {
   border: 1px solid #aaaaaa;
 }
