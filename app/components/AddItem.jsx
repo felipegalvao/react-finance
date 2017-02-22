@@ -10,19 +10,20 @@ class AddItem extends React.Component{
   handleSubmit (e) {
     e.preventDefault();
     var itemDescription = this.refs.itemDescription.value;
-    var itemValue = this.refs.itemValue.value;
-    console.log(this.refs.itemDate.valueAsDate);    
-    var itemDate = moment(this.refs.itemDate.valueAsDate).utc().unix();
-    this.refs.itemDescription.value = '';
-    this.refs.itemValue.value = ''
-    this.refs.itemDate.value = ''
-    if (this.refs.expense.checked) {
-      var itemType = 'expense';
-    } else if (this.refs.income.checked) {
-      var itemType = 'income';
-    }
-    this.props.onAddItem(itemDescription, itemValue, itemDate, itemType);
-    this.refs.itemDescription.focus();
+    var itemValue = this.refs.itemValue.value;    
+    var itemDate = moment(this.refs.itemDate.valueAsDate).utc().unix();    
+    if (itemDescription && itemValue && itemDate) {
+      this.refs.itemDescription.value = '';
+      this.refs.itemValue.value = ''
+      this.refs.itemDate.value = ''
+      if (this.refs.expense.checked) {
+        var itemType = 'expense';
+      } else if (this.refs.income.checked) {
+        var itemType = 'income';
+      }
+      this.props.onAddItem(itemDescription, itemValue, itemDate, itemType);
+      this.refs.itemDescription.focus();
+    }    
   }
 
   render() {
@@ -32,13 +33,13 @@ class AddItem extends React.Component{
         <form onSubmit={this.handleSubmit}>
           <div className="row">
             <div className="medium-4 large-4 columns">
-              <label>Description<input type="text" ref="itemDescription" placeholder="Insert an income / expense here"/></label>
+              <label>Description<input type="text" required ref="itemDescription" placeholder="Insert an income / expense here"/></label>
             </div>
             <div className="medium-2 large-2 columns">
-              <label>Value<input type="number" step="0.01" ref="itemValue" placeholder="Insert value here"/></label>
+              <label>Value<input type="number" required step="0.01" ref="itemValue" placeholder="Insert value here"/></label>
             </div>
             <div className="medium-2 large-2 columns">
-              <label>Date<input type="date" ref="itemDate" placeholder="Insert the date when the income / expense occurred"/></label>
+              <label>Date<input type="date" required ref="itemDate" id="itemDate" placeholder="Insert the date when the income / expense occurred"/></label>
             </div>
             <div className="medium-2 large-2 columns column-radio-button">              
               <label><input type="radio" name="type" ref="expense" value="expense" defaultChecked /> Expense</label>
