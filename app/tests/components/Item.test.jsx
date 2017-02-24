@@ -26,8 +26,6 @@ describe('Item', () => {
 
     TestUtils.Simulate.click($el.find('i')[0]);
 
-    console.log(spy.calls[0].arguments);
-
     expect(spy).toHaveBeenCalledWith(itemData.id, itemData.itemDescription);
   })
 })
