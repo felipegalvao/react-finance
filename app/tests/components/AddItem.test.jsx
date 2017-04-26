@@ -2,7 +2,7 @@ import expect from 'expect';
 import moment from 'moment';
 import React from 'react';
 import ReactDOM from 'react-dom';
-var TestUtils = require('react-addons-test-utils');
+const TestUtils = require('react-addons-test-utils');
 import $ from 'jquery';
 
 import AddItem from 'AddItem';
@@ -13,15 +13,15 @@ describe('AddItem', () => {
   })
 
   it('should call onAddItem with valid item data', () => {
-    var item = {      
+    const item = {      
       itemDescription: 'test item',
       itemValue: 50.50,
       itemDate: 1487548800000,
       itemType: 'expense'
     };
-    var spy = expect.createSpy();
-    var addItem = TestUtils.renderIntoDocument(<AddItem onAddItem={spy}/>);
-    var $el = $(ReactDOM.findDOMNode(addItem));
+    const spy = expect.createSpy();
+    const addItem = TestUtils.renderIntoDocument(<AddItem onAddItem={spy}/>);
+    const $el = $(ReactDOM.findDOMNode(addItem));
 
     addItem.refs.itemDescription.value = item.itemDescription;
     addItem.refs.itemValue.value = item.itemValue;
@@ -34,15 +34,15 @@ describe('AddItem', () => {
   })
 
   it('should not call onAddItem with invalid item data', () => {
-    var item = {      
+    const item = {      
       itemDescription: '',
       itemValue: 50.50,
       itemDate: '1986-06-19',
       itemType: 'expense'
     };
-    var spy = expect.createSpy();
-    var addItem = TestUtils.renderIntoDocument(<AddItem onAddItem={spy}/>);
-    var $el = $(ReactDOM.findDOMNode(addItem));
+    const spy = expect.createSpy();
+    const addItem = TestUtils.renderIntoDocument(<AddItem onAddItem={spy}/>);
+    const $el = $(ReactDOM.findDOMNode(addItem));
 
     addItem.refs.itemDescription.value = item.itemDescription;
     addItem.refs.itemValue.value = item.itemValue;

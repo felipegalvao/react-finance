@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-var NumberFormat = require('react-number-format');
+const NumberFormat = require('react-number-format');
 
 class Item extends React.Component{
   // An item can be an income or an expense
@@ -10,7 +10,7 @@ class Item extends React.Component{
   }
 
   render() {
-    var {id, itemDescription, itemValue, itemDate} = this.props;
+    const {id, itemDescription, itemValue, itemDate} = this.props;
 
     return (
       <tr>

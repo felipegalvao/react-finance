@@ -1,8 +1,8 @@
 import expect from 'expect';
 import React from 'react';
 import ReactDOM from 'react-dom';
-var MockFirebase = require('firebase-mock').MockFirebase;
-var TestUtils = require('react-addons-test-utils');
+const MockFirebase = require('firebase-mock').MockFirebase;
+const TestUtils = require('react-addons-test-utils');
 import $ from 'jquery';
 
 import FinanceApp from 'FinanceApp';
@@ -13,7 +13,7 @@ describe('FinanceApp', () => {
   })
 
   it('should add an item on handleAddItem', () => {
-    var item = {
+    const item = {
       userId: 'abc123',
       itemDescription: 'test item',
       itemValue: 50.50,
@@ -21,7 +21,7 @@ describe('FinanceApp', () => {
       itemType: 'expense'
     }
 
-    var financeApp = TestUtils.renderIntoDocument(<FinanceApp/>);
+    const financeApp = TestUtils.renderIntoDocument(<FinanceApp/>);
 
     financeApp.setState({
       items:[],

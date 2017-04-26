@@ -1,7 +1,7 @@
 import expect from 'expect';
 import React from 'react';
 import ReactDOM from 'react-dom';
-var TestUtils = require('react-addons-test-utils');
+const TestUtils = require('react-addons-test-utils');
 import $ from 'jquery';
 
 import ItemList from 'ItemList';
@@ -13,7 +13,7 @@ describe('ItemList', () => {
   })
 
   it('should render one Item component for each item', () => {
-    var items = [{
+    const items = [{
         id: 'abc123',
         itemDescription: 'test item 1',
         itemValue: 50.50,
@@ -27,21 +27,21 @@ describe('ItemList', () => {
         itemDate: 1499999900000,
         itemType: 'expense'
       }]
-      var totalValue = items[0].itemValue + items[1].itemValue;
+      const totalValue = items[0].itemValue + items[1].itemValue;
 
-      var itemList = TestUtils.renderIntoDocument(<ItemList items={items} title={"Expenses"} totalValue={totalValue} />);
-      var itemsComponents = TestUtils.scryRenderedComponentsWithType(itemList, Item);
+      const itemList = TestUtils.renderIntoDocument(<ItemList items={items} title={"Expenses"} totalValue={totalValue} />);
+      const itemsComponents = TestUtils.scryRenderedComponentsWithType(itemList, Item);
 
       expect(itemsComponents.length).toEqual(items.length);
   })
 
   it('should render a table with no item rows if no items', () => {
-    var items = [];
-    var totalValue = 0;
-    var itemList = TestUtils.renderIntoDocument(<ItemList items={items} title={"Expenses"} totalValue={totalValue} />);
+    const items = [];
+    const totalValue = 0;
+    const itemList = TestUtils.renderIntoDocument(<ItemList items={items} title={"Expenses"} totalValue={totalValue} />);
 
-    var $el = $(ReactDOM.findDOMNode(itemList));
-    var itemRows = $el.find('tbody tr');
+    const $el = $(ReactDOM.findDOMNode(itemList));
+    const itemRows = $el.find('tbody tr');
 
     expect(itemRows.length).toEqual(0);
   })

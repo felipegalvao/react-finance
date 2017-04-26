@@ -1,7 +1,7 @@
 import React from 'react';
 import Item from 'Item';
 
-var NumberFormat = require('react-number-format');
+const NumberFormat = require('react-number-format');
 
 class ItemList extends React.Component{
   constructor(props) {
@@ -9,8 +9,8 @@ class ItemList extends React.Component{
   }
 
   render() {
-    var {items, title, totalValue} = this.props;
-    var renderItems = () => {
+    const {items, title, totalValue} = this.props;
+    const renderItems = () => {
       return items.map((item) => {
         return <Item key={item.id} {...item} onDelete={ this.props.onDelete } />
       })

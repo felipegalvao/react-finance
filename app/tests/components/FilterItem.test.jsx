@@ -13,10 +13,10 @@ describe('FilterItem', () => {
   })
 
   it('should call onFilterByText when text is inputed', () => {
-    var filterText = 'food';
-    var spy = expect.createSpy();
-    var filterItem = TestUtils.renderIntoDocument(<FilterItem onFilterByText={spy}/>);
-    var $el = $(ReactDOM.findDOMNode(filterItem));
+    const filterText = 'food';
+    const spy = expect.createSpy();
+    const filterItem = TestUtils.renderIntoDocument(<FilterItem onFilterByText={spy}/>);
+    const $el = $(ReactDOM.findDOMNode(filterItem));
     filterItem.setState({filterVisible: true});
 
     filterItem.refs.searchItemText.value = filterText;
@@ -26,12 +26,12 @@ describe('FilterItem', () => {
   })
 
   it('should call onFilterByDate when dates are provided', () => {
-    var dateFrom = 1487548800000;
-    var dateTo = 1487549900000;    
-    var spy = expect.createSpy();
-    var filterItem = TestUtils.renderIntoDocument(<FilterItem onFilterByDate={spy}/>);
+    const dateFrom = 1487548800000;
+    const dateTo = 1487549900000;    
+    const spy = expect.createSpy();
+    const filterItem = TestUtils.renderIntoDocument(<FilterItem onFilterByDate={spy}/>);
     filterItem.setState({filterVisible: true});
-    var $el = $(ReactDOM.findDOMNode(filterItem));
+    const $el = $(ReactDOM.findDOMNode(filterItem));
     
     filterItem.refs.fromDateFilter.valueAsNumber = dateFrom;
     filterItem.refs.toDateFilter.valueAsNumber = dateTo;    
