@@ -11,11 +11,12 @@ require("style!css!sass!applicationStyles");
 
 // Initialize Firebase
 const config = {
-  apiKey: "AIzaSyA7xzwggPFVSKtCL7CF7RsiG2jyFiUEDYg",
-  authDomain: "react-finance-app.firebaseapp.com",
-  databaseURL: "https://react-finance-app.firebaseio.com",
-  storageBucket: "react-finance-app.appspot.com",
-  messagingSenderId: "113635739632"
+  apiKey: "AIzaSyAKEywpI6iUUOlunjGbHyU8vZU0f3QRu3s",
+  authDomain: "okane-money-app.firebaseapp.com",
+  databaseURL: "https://okane-money-app.firebaseio.com",
+  projectId: "okane-money-app",
+  storageBucket: "",
+  messagingSenderId: "165886039147"
 };
 firebase.initializeApp(config);
 

@@ -27,6 +27,46 @@ class Login extends Component {
                     <i className="fa fa-google" aria-hidden="true" />
                     {" "}
                     Login with Google
+                </button> <br />
+                <button
+                    className="button button-mail"
+                    onClick={() => {
+                        this.props.onEmailLogin();
+                    }}
+                >
+                    <i className="fa fa-envelope" aria-hidden="true" />
+                    {" "}
+                    Login with E-Mail
+                </button>
+                <button
+                    className="button button-phone"
+                    onClick={() => {
+                        this.props.onPhoneLogin();
+                    }}
+                >
+                    <i className="fa fa-phone" aria-hidden="true" />
+                    {" "}
+                    Login with Phone
+                </button> <br />
+                <button
+                    className="button button-twitter"
+                    onClick={() => {
+                        this.props.onTwitterLogin();
+                    }}
+                >
+                    <i className="fa fa-twitter" aria-hidden="true" />
+                    {" "}
+                    Login with Twitter
+                </button>
+                <button
+                    className="button button-facebook"
+                    onClick={() => {
+                        this.props.onFacebookLogin();
+                    }}
+                >
+                    <i className="fa fa-facebook-f" aria-hidden="true" />
+                    {" "}
+                    Login with Facebook
                 </button>
             </div>
         );

@@ -7,7 +7,7 @@
     "test": "karma start",
     "start": "node server.js"
   },
-  "author": "Felipe Galvao",
+  "author": "Alexander B.",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.15.2",

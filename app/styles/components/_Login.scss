@@ -8,11 +8,26 @@
         outline: none;
         border-radius: 2px;
         box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+        width: 180px;
     }
     .button-github {
         background-color: #000000;
     }
     .button-google {
         background-color: #dd4b39;
+    }
+
+    .button-mail {
+        background-color: #691c43;
+    }
+    .button-phone {
+        background-color: #333333;
+    }
+
+    .button-twitter {
+        background-color: #38a1f4;
+    }
+    .button-facebook {
+        background-color: #3b5998;
     }
 }

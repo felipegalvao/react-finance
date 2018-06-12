@@ -133,6 +133,40 @@ class FinanceApp extends React.Component {
       });
   };
 
+
+  handleEmailLogin = () => {
+    console.log("starting Email Login");
+
+    const emailProvider = new firebase.auth;
+    console.log(emailProvider);
+    //
+    // firebase
+    //   .auth()
+    //   .signInWithPopup(googleProvider)
+    //   .then(function(result) {
+    //     if (result.credential) {
+    //       // This gives you a Google Access Token. You can use it to access the Google API.
+    //       const token = result.credential.accessToken;
+    //       // ...
+    //     }
+    //     // The signed-in user info.
+    //     const user = result.user;
+    //     console.log("Got user from Google: ", token);
+    //   })
+    //   .catch(function(error) {
+    //     // Handle Errors here.
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //     // The email of the user's account used.
+    //     const email = error.email;
+    //     // The firebase.auth.AuthCredential type that was used.
+    //     const credential = error.credential;
+    //     // ...
+    //   });
+  };
+
+
+
   handleGithubLogin = () => {
     console.log("starting Github Login");
 
@@ -265,9 +299,13 @@ class FinanceApp extends React.Component {
           <div className="row">
             <div className="columns small-centered medium-12 large-12">
               <Login
-                onGithubLogin={this.handleGithubLogin}
-                onGoogleLogin={this.handleGoogleLogin}
-                onLogout={this.handleLogout}
+                onGithubLogin     =  {this.handleGithubLogin}
+                onGoogleLogin     =  {this.handleGoogleLogin}
+                onEmailLogin      =  {this.handleEmailLogin}
+                onPhoneLogin      =  {this.handlePhoneLogin}
+                onTwitterLogin    =  {this.handleTwitterLogin}
+                onFacebookLogin   =  {this.handleFacebookLogin}
+                onLogout          =  {this.handleLogout}
               />
             </div>
           </div>
@@ -277,7 +315,7 @@ class FinanceApp extends React.Component {
 
     const renderLogout = () => {
       if (firebase.auth().currentUser) {
-        return <a className="p-logout" onClick={this.handleLogout}>Logout</a>;
+        return <a className="p-logout" onClick={this.handleLogout}>Выйти</a>;
       }
     };
 
